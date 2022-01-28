@@ -11,7 +11,7 @@ class Movies {
     required this.page,
     required this.posterPath,
     required this.public,
-    required this.results,
+    required this.listMovies,
     required this.revenue,
     required this.runtime,
     required this.sortBy,
@@ -29,7 +29,7 @@ class Movies {
   late final int page;
   late final String posterPath;
   late final bool public;
-  late final List<Results> results;
+  late final List<Movie> listMovies;
   late final int revenue;
   late final int runtime;
   late final String sortBy;
@@ -48,7 +48,7 @@ class Movies {
     page = json['page'];
     posterPath = json['poster_path'];
     public = json['public'];
-    results = List.from(json['results']).map((e)=>Results.fromJson(e)).toList();
+    listMovies = List.from(json['results']).map((e)=>Movie.fromJson(e)).toList();
     revenue = json['revenue'];
     runtime = json['runtime'];
     sortBy = json['sort_by'];
@@ -69,7 +69,7 @@ class Movies {
     _data['page'] = page;
     _data['poster_path'] = posterPath;
     _data['public'] = public;
-    _data['results'] = results.map((e)=>e.toJson()).toList();
+    _data['results'] = listMovies.map((e)=>e.toJson()).toList();
     _data['revenue'] = revenue;
     _data['runtime'] = runtime;
     _data['sort_by'] = sortBy;
@@ -108,8 +108,8 @@ class CreatedBy {
   }
 }
 
-class Results {
-  Results({
+class Movie {
+  Movie({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -142,7 +142,7 @@ class Results {
   late final double? voteAverage;
   late final int voteCount;
   
-  Results.fromJson(Map<String, dynamic> json){
+  Movie.fromJson(Map<String, dynamic> json){
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = List.castFrom<dynamic, int>(json['genre_ids']);
@@ -156,7 +156,7 @@ class Results {
     releaseDate = json['release_date'];
     title = json['title'];
     video = json['video'];
-    voteAverage = json['vote_average'];
+    //voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
   }
 
