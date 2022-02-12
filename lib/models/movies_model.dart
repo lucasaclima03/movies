@@ -35,8 +35,8 @@ class Movies {
   late final String sortBy;
   late final int totalPages;
   late final int totalResults;
-  
-  Movies.fromJson(Map<String, dynamic> json){
+
+  Movies.fromJson(Map<String, dynamic> json) {
     averageRating = json['average_rating'];
     backdropPath = json['backdrop_path'];
     createdBy = CreatedBy.fromJson(json['created_by']);
@@ -48,7 +48,8 @@ class Movies {
     page = json['page'];
     posterPath = json['poster_path'];
     public = json['public'];
-    listMovies = List.from(json['results']).map((e)=>Movie.fromJson(e)).toList();
+    listMovies =
+        List.from(json['results']).map((e) => Movie.fromJson(e)).toList();
     revenue = json['revenue'];
     runtime = json['runtime'];
     sortBy = json['sort_by'];
@@ -69,7 +70,7 @@ class Movies {
     _data['page'] = page;
     _data['poster_path'] = posterPath;
     _data['public'] = public;
-    _data['results'] = listMovies.map((e)=>e.toJson()).toList();
+    _data['results'] = listMovies.map((e) => e.toJson()).toList();
     _data['revenue'] = revenue;
     _data['runtime'] = runtime;
     _data['sort_by'] = sortBy;
@@ -90,8 +91,8 @@ class CreatedBy {
   late final String id;
   late final String name;
   late final String username;
-  
-  CreatedBy.fromJson(Map<String, dynamic> json){
+
+  CreatedBy.fromJson(Map<String, dynamic> json) {
     gravatarHash = json['gravatar_hash'];
     id = json['id'];
     name = json['name'];
@@ -141,8 +142,8 @@ class Movie {
   late final bool video;
   late final double? voteAverage;
   late final int voteCount;
-  
-  Movie.fromJson(Map<String, dynamic> json){
+
+  Movie.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = List.castFrom<dynamic, int>(json['genre_ids']);
