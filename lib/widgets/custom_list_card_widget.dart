@@ -56,10 +56,10 @@ class CustomListCardWidget extends StatelessWidget {
                       ),
                       Spacer(),
                       Text(
-                        'Popularidade: ' + movie.popularity.toString(),
+                        'Popularity: ' + movie.popularity.toString(),
                       ),
                       Spacer(),
-                      Text('Lançamento: ' + movie.releaseDate)
+                      Text('Release date: ' + movie.releaseDate)
                     ],
                   ),
                 ),
